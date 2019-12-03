@@ -1,0 +1,7 @@
+[user]
+	name = kenh0u
+	email = 21225079+kenh0u@users.noreply.github.com
+[core]
+	editor = vim
+[alias]
+	graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
