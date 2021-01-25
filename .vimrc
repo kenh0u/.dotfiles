@@ -48,6 +48,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set helplang=ja
+set nf=hex
 
 nnoremap : ;
 nnoremap ; :

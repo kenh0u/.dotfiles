@@ -9,6 +9,7 @@ alias ..='cd ..'
 wsl(){
   alias pbcopy='win32yank.exe -i'
   alias pbpaste='win32yank.exe -o'
+  function open() { cmd.exe /c start $(wslpath -w $1) &> /dev/null; }
 }
 
 linux(){
@@ -29,3 +30,4 @@ if [ $(uname) == 'Linux' ];then
 elif [ $(uname) == 'Darwin' ];then
   mac
 fi
+
