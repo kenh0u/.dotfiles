@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+  exit 1
+fi
+
+if [ $(echo $1|grep -o :|wc -l) -ne 2 ]; then
+  exit 2
+fi
+
+start=`echo ${1/:/ hours ago }`
+start=`echo ${start/:/ minutes ago } seconds ago`
+
+while read -t 1 line; do
+  if expr "${line:0:1}" : "[0-9]*$" >&/dev/null; then
+    datestamp=`echo ${line%% *}`
+    content=`echo ${line#* }`
+    date "+%H:%M:%S" -d "$datestamp $start" | tr -d "\n"
+    echo " $content"
+  else
+    echo $line
+  fi
+done

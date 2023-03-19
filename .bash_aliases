@@ -1,3 +1,5 @@
+export PATH=$PATH:$HOME/.dotfiles/scripts
+
 shopt -s expand_aliases
 
 alias la='ls -a'
