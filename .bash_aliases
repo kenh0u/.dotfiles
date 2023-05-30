@@ -9,7 +9,13 @@ alias ..='cd ..'
 wsl(){
   alias pbcopy='win32yank.exe -i'
   alias pbpaste='win32yank.exe -o'
-  function open() { cmd.exe /c start $(wslpath -w $1) &> /dev/null; }
+  function open() { 
+    if [ $# -lt 1 ]; then
+      cmd.exe /c start $(wslpath -w .) &> /dev/null
+    else
+      cmd.exe /c start $(wslpath -w $1) &> /dev/null
+    fi
+  }
 }
 
 linux(){
