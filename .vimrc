@@ -28,6 +28,7 @@ set tabline=%!MakeTabLine()
 set statusline=\ %F\ %m%r%h%w\ %=\ [%v,%l/%L][%p%%]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ 
 set splitbelow
 set splitright
+set ambiwidth=double
 
 hi NonText ctermfg=59
 hi SpecialKey ctermfg=59
