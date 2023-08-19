@@ -6,6 +6,13 @@ alias lal='ls -al'
 alias bd='cd $OLDPWD'
 alias ..='cd ..'
 
+alias yt-mp4='yt-dlp --add-metadata -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" --cookies ~/.youtube.com_cookies.txt'
+alias yt-webm='yt-dlp --add-metadata -f "bestvideo[ext=webm]+bestaudio[ext=webm]" --cookies ~/.youtube.com_cookies.txt'
+alias yt-live='yt-dlp --wait-for-video 0 --add-metadata -f "b" --cookies ~/.youtube.com_cookies.txt'
+alias yt-live-fs='yt-dlp --wait-for-video 0 --live-from-start --add-metadata -f "bestvideo+bestaudio" --cookies ~/.youtube.com_cookies.txt'
+alias yt-lf='yt-dlp --list-formats --cookies ~/.youtube.com_cookies.txt'
+alias yt-d='yt-dlp --add-metadata --cookies ~/.youtube.com_cookies.txt'
+
 wsl(){
   alias pbcopy='win32yank.exe -i'
   alias pbpaste='win32yank.exe -o'
