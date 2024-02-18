@@ -6,7 +6,6 @@ set noundofile
 set encoding=utf-8
 scriptencoding utf-8
 
-colorscheme elflord
 syntax enable
 set number
 set ruler
