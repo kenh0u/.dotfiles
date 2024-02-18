@@ -38,7 +38,6 @@ set incsearch
 set hlsearch
 
 set mouse=a
-set ttymouse=xterm2
 set hidden
 set autoread
 set history=10
