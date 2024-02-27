@@ -1,7 +1,7 @@
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 CONFDIR    := $(wildcard .config/*)
 CANDIDATES := $(wildcard .??*) $(wildcard .config/*/*)
-EXCLUSIONS := .DS_Store .git .gitmodules
+EXCLUSIONS := .DS_Store .git .gitmodules .config
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 
 .DEFAULT_GOAL := help
@@ -10,7 +10,7 @@ list: ## Show list of dot files
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
 update: ## Update this repository
-	git pull origin master
+	git pull origin main
 
 install: ## Create symlink to home directory
 	@echo '==> Create symlink to home directory...'
