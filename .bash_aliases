@@ -8,6 +8,7 @@ alias ..='cd ..'
 
 alias yt-mp4='yt-dlp --add-metadata -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" --cookies ~/.youtube.com_cookies.txt'
 alias yt-webm='yt-dlp --add-metadata -f "bestvideo[ext=webm]+bestaudio[ext=webm]" --cookies ~/.youtube.com_cookies.txt'
+alias yt-best='yt-dlp --add-metadata -f "bestvideo+bestaudio" --cookies ~/.youtube.com_cookies.txt'
 alias yt-live='yt-dlp --wait-for-video 0 --add-metadata -f "b" --cookies ~/.youtube.com_cookies.txt'
 alias yt-live-fs='yt-dlp --wait-for-video 0 --live-from-start --add-metadata -f "bestvideo+bestaudio" --cookies ~/.youtube.com_cookies.txt'
 alias yt-lf='yt-dlp --list-formats --cookies ~/.youtube.com_cookies.txt'
@@ -31,7 +32,7 @@ linux(){
 }
 
 mac(){
-  :
+  alias rmprov='rm ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/*.mobileprovision'
 }
 
 if [ $(uname) == 'Linux' ];then
