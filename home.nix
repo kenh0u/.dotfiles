@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "kenhou";
-  home.homeDirectory = "/home/kenhou";
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
@@ -20,5 +18,14 @@
   programs.git = {
     enable = true;
     includes = [ { path = "${config.home.homeDirectory}/.dotfiles/.gitconfig"; } ];
+  };
+
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+      fi
+    '';
   };
 }
