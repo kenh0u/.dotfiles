@@ -4,10 +4,6 @@
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
-    fzf ripgrep jq tree
-  ];
-
   home.file.".bash_aliases".source = ./.bash_aliases;
   home.file.".vimrc".source = ./.vimrc;
   home.file.".tmux.conf".source = ./.tmux.conf;
@@ -17,7 +13,7 @@
 
   programs.git = {
     enable = true;
-    includes = [ { path = "${config.home.homeDirectory}/.dotfiles/.gitconfig"; } ];
+    includes = [ { path = "${./.gitconfig}"; } ];
   };
 
   programs.bash = {
