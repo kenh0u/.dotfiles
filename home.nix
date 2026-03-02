@@ -7,7 +7,6 @@
   home.file.".bash_aliases".source = ./.bash_aliases;
   home.file.".vimrc".source = ./.vimrc;
   home.file.".tmux.conf".source = ./.tmux.conf;
-  home.file.".screenrc".source = ./.screenrc;
   home.file.".config/nvim/init.vim".source = ./.config/nvim/init.vim;
   home.file.".config/git/ignore".source = ./.config/git/ignore;
 
