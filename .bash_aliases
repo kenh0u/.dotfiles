@@ -1,3 +1,4 @@
+set -o vi
 shopt -s expand_aliases
 
 alias la='ls -a'
