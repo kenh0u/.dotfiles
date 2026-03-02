@@ -52,6 +52,7 @@ set nf=hex
 nnoremap q: <Nop>
 nnoremap q/ <Nop>
 nnoremap q? <Nop>
+nnoremap q <Nop>
 nnoremap ' :
 
 nnoremap : ;
