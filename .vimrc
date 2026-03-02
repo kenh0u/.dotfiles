@@ -49,6 +49,11 @@ set shiftwidth=2
 set helplang=ja
 set nf=hex
 
+nnoremap q: <Nop>
+nnoremap q/ <Nop>
+nnoremap q? <Nop>
+nnoremap ' :
+
 nnoremap : ;
 nnoremap ; :
 vnoremap : ;
