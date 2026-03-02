@@ -10,6 +10,10 @@
   home.file.".config/nvim/init.vim".source = ./.config/nvim/init.vim;
   home.file.".config/git/ignore".source = ./.config/git/ignore;
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   programs.git = {
     enable = true;
     includes = [ { path = "${./.gitconfig}"; } ];
