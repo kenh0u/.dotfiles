@@ -1,133 +1,94 @@
+" ==========================================================
+" 1. Base Settings
+" ==========================================================
+" Load ~/.bash_aliases to use pbcopy/pbpaste wrapper
 let $BASH_ENV = "~/.bash_aliases"
 
-set nobackup
-set noundofile
+set nobackup      " Do not create backup files (*~)
+set noundofile    " Do not create undo files (.un~)
+set hidden        " Allow switching buffers without saving
+set autoread      " Automatically reload files changed outside of Vim
+set history=1000  " Keep 1000 lines of command line history
 
+" ==========================================================
+" 2. Encoding & Display
+" ==========================================================
 set encoding=utf-8
 scriptencoding utf-8
+set ambiwidth=double " Prevent layout issues with ambiguous width characters (e.g. Japanese symbols)
 
-syntax enable
-set number
-set ruler
-set list
-set listchars=tab:»-,trail:-,nbsp:%,extends:»,precedes:«,eol:↲
-set showbreak=¦
-set wrap
-set display=lastline
-set whichwrap=h,l,[,],<,>
-set nowrapscan
-set wildmenu
+" ==========================================================
+" 3. Appearance & UI
+" ==========================================================
+syntax enable      " Enable syntax highlighting
+set number         " Show line numbers
+set ruler          " Show cursor position in the lower right corner
+set showcmd        " Show incomplete commands in the lower right corner
+set wildmenu       " Enhanced command-line completion
+set cursorline     " Highlight the current line
+
+" Disable all bells and flashes
 set novisualbell
 set noerrorbells
 set belloff=all
-set showcmd
-set laststatus=2
-set showtabline=2
-set tabline=%!MakeTabLine()
-set statusline=\ %F\ %m%r%h%w\ %=\ [%v,%l/%L][%p%%]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ 
-set splitbelow
-set splitright
-set ambiwidth=double
 
+set laststatus=2   " Always show the status line
+set statusline=\ %F\ %m%r%h%w\ %=\ [%v,%l/%L][%p%%]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ 
+
+set wrap           " Wrap long lines
+set display=lastline " Show as much as possible of the last line
+set list           " Show invisible characters
+set listchars=tab:»-,trail:-,nbsp:%,extends:»,precedes:«,eol:↲
+set showbreak=¦    " String to put at the start of lines that have been wrapped
 hi NonText ctermfg=59
 hi SpecialKey ctermfg=59
 
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
+" ==========================================================
+" 4. Search, Edit & Indentation
+" ==========================================================
+set ignorecase     " Ignore case in search patterns
+set smartcase      " Override ignorecase if search pattern contains uppercase
+set incsearch      " Show search matches as you type
+set hlsearch       " Highlight search results
+set nowrapscan     " Stop search at the end of the file
 
-set mouse=a
-set hidden
-set autoread
-set history=10
-set cindent
-set smartindent
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set helplang=ja
-set nf=hex
+set mouse=a        " Enable mouse support
+set cindent        " Enable C-style indentation
+set smartindent    " Smart auto-indentation
+set expandtab      " Use spaces instead of tabs
+set tabstop=2      " Number of spaces that a <Tab> in the file counts for
+set shiftwidth=2   " Number of spaces to use for each step of (auto)indent
+set helplang=ja    " Use Japanese help files if available
+set nf=hex         " Treat hex numbers as numbers for Ctrl-A/Ctrl-X
 
+" ==========================================================
+" 5. Key Mappings
+" ==========================================================
+" Disable annoying command-line window and macro recording triggers
 nnoremap q: <Nop>
 nnoremap q/ <Nop>
 nnoremap q? <Nop>
 nnoremap q <Nop>
 nnoremap ' :
 
+" Swap colon and semicolon for easier typing
 nnoremap : ;
 nnoremap ; :
 vnoremap : ;
 vnoremap ; :
-tnoremap <C-w>: <C-w>;
-tnoremap <C-w>; <C-w>:
 
+" Make Y behave like D and C (yank to end of line)
 nnoremap Y y$
-nnoremap s <C-w>
-nnoremap - <C-w>-
-nnoremap = <C-w>+
-nnoremap , <C-w><
-nnoremap . <C-w>>
-nnoremap H <C-w>h
-nnoremap J <C-w>j
-nnoremap K <C-w>k
-nnoremap L <C-w>l
-nnoremap <S-Left> <C-w>h
-nnoremap <S-Down> <C-w>j
-nnoremap <S-Up> <C-w>k
-nnoremap <S-Right> <C-w>l
-nnoremap <silent> <C-h> :tabprevious<CR>
-nnoremap <silent> <C-Left> :tabprevious<CR>
-nnoremap <silent> <C-l> :tabnext<CR>
-nnoremap <silent> <C-Right> :tabnext<CR>
-nnoremap <C-n> :tabnew<Space>
-nnoremap <silent> <C-t> :tabnew <bar> terminal ++curwin<CR>
 
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+" Allow backspace and cursor keys to cross line boundaries
+set whichwrap=h,l,[,],<,>
 
-tnoremap <Esc><Esc> <C-w>N
-tnoremap <S-Left> <C-w>h
-tnoremap <S-Down> <C-w>j
-tnoremap <S-Up> <C-w>k
-tnoremap <S-Right> <C-w>l
-tnoremap <silent> <C-h> <C-w>:tabprevious<CR>
-tnoremap <silent> <C-Left> <C-w>:tabprevious<CR>
-tnoremap <silent> <C-l> <C-w>:tabnext<CR>
-tnoremap <silent> <C-Right> <C-w>:tabnext<CR>
-tnoremap <silent> <C-t> <C-w>:tabnew <bar> terminal ++curwin<CR>
-tnoremap <C-n> <C-w>:tabnew<Space>
+" Toggle expandtab (Space vs Tab) with <Leader>t (Default Leader is '\')
+nnoremap <Leader><Tab> :if &expandtab <Bar> set noexpandtab <Bar> echo "expandtab OFF (Using Tabs)" <Bar> else <Bar> set expandtab <Bar> echo "expandtab ON (Using Spaces)" <Bar> endif<CR>
 
+" ==========================================================
+" 6. Custom Commands
+" ==========================================================
+" Clipboard integration via ~/.bash_aliases pbcopy/pbpaste wrapper
 :command C call system("pbcopy", @")
 :command P let @"=system("pbpaste")
-:command T terminal ++curwin
-
-function! MakeTabLine()
-  let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
-  let sep = '|'
-  let tabpages = join(titles, sep) . sep . '%#TabLineFill#%T'
-  let info = fnamemodify(getcwd(), ":~") . ' '
-  return tabpages . '%=' . info
-endfunction
-
-function! s:tabpage_label(n)
-  let bufnrs = tabpagebuflist(a:n)
-  let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
-
-  let no = len(bufnrs)
-  if no is 1
-    let no = ''
-  endif
-
-  let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '+' : ''
-  let sp = (no . mod) ==# '' ? '' : ' '
-
-  let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]
-  let fname = bufname(curbufnr)
-
-  let label = '[ ' . no . mod . sp . fname . ' ]'
-
-  return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
-endfunction
