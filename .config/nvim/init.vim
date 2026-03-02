@@ -2,6 +2,8 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
+colorscheme vim
+
 set clipboard+=unnamedplus
 
 nnoremap <Leader>c :if &clipboard == "unnamedplus" <Bar> set clipboard= <Bar> echo "Clipboard Sync OFF" <Bar> else <Bar> set clipboard=unnamedplus <Bar> echo "Clipboard Sync ON" <Bar> endif<CR>
