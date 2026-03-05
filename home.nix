@@ -28,7 +28,7 @@
           ((UID)) && PROMPT_COLOR="1;32m"
 
           local NIX_PROMPT=""
-          if [ -n "$IN_NIX_SHELL" ]; then
+          if [ -n "$IN_NIX_SHELL" ] || [[ "$PATH" == /nix/store/* ]]; then
             local ENV_NAME="nix"
             if [ -n "$pname" ]; then
               ENV_NAME="$pname"
