@@ -1,0 +1,56 @@
+# ==========================================
+# Ghostty Config: macOS Terminal "Basic" (Black Customized)
+# ==========================================
+
+# --- Terminal Emulation ---
+term = xterm-256color
+
+# --- Window Size ---
+window-width = 160
+window-height = 48
+
+# --- Font Settings ---
+font-family = "UDEV Gothic 35JPDOC"
+font-style = "Regular"
+font-size = 11.5
+adjust-cell-height = 0%
+font-thicken = true
+font-feature = -calt
+
+# --- Cursor ---
+cursor-style = block
+cursor-style-blink = false
+cursor-color = ffffff
+
+# --- Base Colors ---
+background = 1c1c1e
+foreground = ffffff
+
+# Selection colors (Gray-blue extracted from macOS native terminal)
+selection-background = 3c5876
+selection-foreground = ffffff
+
+# --- ANSI Color Palette ---
+palette = 0=#000000
+palette = 1=#990000
+palette = 2=#00a600
+palette = 3=#999900
+palette = 4=#2188ff
+palette = 5=#b200b2
+palette = 6=#00a6b2
+palette = 7=#bfbfbf
+palette = 8=#666666
+palette = 9=#e50000
+palette = 10=#00d900
+palette = 11=#e5e500
+palette = 12=#79b8ff
+palette = 13=#e500e5
+palette = 14=#00e5e5
+palette = 15=#ffffff
+
+# --- Window Padding ---
+window-padding-x = 4
+window-padding-y = 4
+
+# --- Closing Confirmation ---
+confirm-close-surface = true

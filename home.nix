@@ -9,6 +9,7 @@
   home.file.".tmux.conf".source = ./.tmux.conf;
   home.file.".config/nvim/init.vim".source = ./.config/nvim/init.vim;
   home.file.".config/git/ignore".source = ./.config/git/ignore;
+  home.file.".config/ghostty/config".source = ./.config/ghostty/config;
 
   home.sessionVariables = {
     EDITOR = "nvim";
