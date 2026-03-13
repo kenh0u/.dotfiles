@@ -25,7 +25,6 @@ set number         " Show line numbers
 set ruler          " Show cursor position in the lower right corner
 set showcmd        " Show incomplete commands in the lower right corner
 set wildmenu       " Enhanced command-line completion
-set cursorline     " Highlight the current line
 
 " Disable all bells and flashes
 set novisualbell
