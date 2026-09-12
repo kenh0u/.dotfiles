@@ -50,6 +50,11 @@
       if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
       fi
+
+      # mutable な追加分 (rebuild 不要、sort 順に読み込み)
+      for f in ~/.bashrc.d/*.sh; do
+        [ -e "$f" ] && . "$f"
+      done
     '';
   };
 }
