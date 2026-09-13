@@ -29,7 +29,10 @@
           ((UID)) && PROMPT_COLOR="1;32m"
 
           local NIX_PROMPT=""
-          if [ -n "$IN_NIX_SHELL" ] || [[ "$PATH" == /nix/store/* ]]; then
+          # IN_NIX_SHELL だけを見る。PATH ベースの判定は、nix ラッパーが
+          # 外部コマンド (git 等) を PATH 先頭に差し込むパッケージ
+          # (例: noctalia) と組み合わせると誤検出するため使わない
+          if [ -n "$IN_NIX_SHELL" ]; then
             local ENV_NAME="nix"
             if [ -n "$pname" ]; then
               ENV_NAME="$pname"
